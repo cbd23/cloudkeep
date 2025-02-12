@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+body {
+    background-color: #1c1c1e;
+    color: #ffffff;
+}
+
+header {
+    /* border: 1px solid #ffffff; */
+
+    height: 44px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-btn {
+    /* border: 1px solid deeppink; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    cursor: pointer;
+    margin: 4px;
+}
+
+.options-btn {
+    /* border: 1px solid lightgoldenrodyellow; */
+
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin: 4px;
+}
+
+main {
+    /* border: 1px solid red; */
+
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main-content {
+    /* border: 2px solid deeppink; */
+
+    width: 512px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.main-video {
+    /* border: 1px solid orange; */
+    display: flex;
+    justify-content: center;
+
+}
+
+.main-app-name {
+    /* border: 1px solid blue; */
+
+    font-size: 100px;
+    margin-top: -30px;
+}
+
+.main-sign-in-btn {
+    /* border: 1px solid white; */
+    border-radius: 20px;
+
+    background-color: #ffffff;
+    color: #1c1c1e;
+    font-weight: 700;
+    width: fit-content;
+    min-width: 146px;
+    height: 44px;
+    padding: 0 30px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.main-description {
+    /* border: 1px solid lawngreen; */
+
+    text-align: center;
+    font-size: 40px;
+    font-weight: 500;
+}
