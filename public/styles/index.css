@@ -17,16 +17,12 @@ body {
 }
 
 header {
-    /* border: 1px solid #ffffff; */
-
     height: 44px;
     display: flex;
     justify-content: space-between;
 }
 
 .home-btn {
-    /* border: 1px solid deeppink; */
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,25 +32,19 @@ header {
 }
 
 .options-btn {
-    /* border: 1px solid lightgoldenrodyellow; */
-
     display: flex;
     align-items: center;
     cursor: pointer;
-    margin: 4px;
+    margin: 8px;
 }
 
 main {
-    /* border: 1px solid red; */
-
     height: 100%;
     display: flex;
     justify-content: center;
 }
 
 .main-content {
-    /* border: 2px solid deeppink; */
-
     width: 512px;
     display: flex;
     flex-direction: column;
@@ -62,23 +52,18 @@ main {
 }
 
 .main-video {
-    /* border: 1px solid orange; */
     display: flex;
     justify-content: center;
 
 }
 
 .main-app-name {
-    /* border: 1px solid blue; */
-
     font-size: 100px;
     margin-top: -30px;
 }
 
 .main-sign-in-btn {
-    /* border: 1px solid white; */
     border-radius: 20px;
-
     background-color: #ffffff;
     color: #1c1c1e;
     font-weight: 700;
@@ -94,8 +79,6 @@ main {
 }
 
 .main-description {
-    /* border: 1px solid lawngreen; */
-
     text-align: center;
     font-size: 40px;
     font-weight: 500;
