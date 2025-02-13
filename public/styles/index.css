@@ -5,10 +5,16 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-a {
+form a {
     text-decoration: none;
     width: fit-content;
     margin: 0 auto;
+}
+
+a,
+a:visited {
+    color: #ffffff;
+    text-decoration: none;
 }
 
 body {
@@ -54,7 +60,6 @@ main {
 .main-video {
     display: flex;
     justify-content: center;
-
 }
 
 .main-app-name {
