@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/signIn.css">
+    <link rel="icon" href="/images/cloudkeep-icon.ico" />
+    <title>CloudKeep</title>
+</head>
+<body>
+    <header>
+        <a href="/">
+            <div class="home-btn">
+                <div class="app-logo">
+                    <img src="images/cloudkeep-logo-landscape.png" alt="CloudKeep logo" height="40">
+                </div>
+                <div class="app-name">CloudKeep</div>
+            </div>
+        </a>
+        <div class="options-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="34" height="34" fill="white"><title>dots-horizontal</title><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" /></svg>
+        </div>
+    </header>
+    <main>
+        <form action="/sign-in" method="post">
+            <div class="app-logo-container"><img src="/images/cloudkeep-logo-square.png" alt="CloudKeep logo" height="160"></div>
+            <h1 class="sign-in-heading">Sign in with CloudKeep Account</h1>
+            <div class="inputs">
+                <input type="email" class="email" placeholder="Email" minlength="8" maxlength="50" tabindex="1" required>
+                <input type="password" class="password" placeholder="password" minlength="6" maxlength="50" tabindex="1" required>
+            </div>
+            <button type="submit" class="submit-btn" tabindex="1">Sign In</button>
+            <div class="keep-me-signed-in-container">
+                <input type="checkbox" id="keep-me-signed-in" tabindex="1"></input>
+                <label for="keep-me-signed-in">Keep me signed in</label>
+            </div>
+            <a href="/sign-up" class="sign-up-btn" tabindex="1">Create CloudKeep Account</a>
+        </form>
+    </main>
+</body>
+</html>
