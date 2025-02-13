@@ -5,6 +5,7 @@ import path from "path"
 
 // import routers
 import indexRouter from "./routes/indexRouter.js"
+import signInRouter from "./routes/signInRouter.js"
 
 // define __filename & __dirname for ejs setup using ESM
 const __filename = fileURLToPath(import.meta.url)
@@ -24,6 +25,7 @@ app.use(express.static(assetsPath))
 app.use(express.urlencoded({ extended: true }))
 
 // assign routers
+app.use("/sign-in", signInRouter)
 app.use("/", indexRouter)
 
 const PORT = process.env.PORT || 3000
