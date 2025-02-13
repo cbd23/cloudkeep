@@ -11,8 +11,15 @@ form a {
     margin: 0 auto;
 }
 
+a,
+a:visited {
+    text-decoration: none;
+}
+
+form a,
 form a:visited {
     color: #009AFF;
+    text-decoration: none;
 }
 
 body {
