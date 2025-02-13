@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+form a {
+    text-decoration: none;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+form a:visited {
+    color: #009AFF;
+}
+
+body {
+    background-color: #1c1c1e;
+    color: #ffffff;
+}
+
+header {
+    height: 44px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    color: #ffffff;
+    cursor: pointer;
+    margin: 4px;
+}
+
+.options-btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin: 4px;
+}
+
+form {
+    border: 1px solid white;
+    border-radius: 32px;
+    width: 640px;
+    height: 610px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+}
+
+.email,
+.password {
+    border: 1px solid #6e6e73;
+    border-radius: 12px;
+    background-color: #FFFFFF0A;
+    font-size: 17px;
+    color: white;
+    padding: 18px 16px;
+    width: 480px;
+    height: 56px;
+}
+
+.email {
+    border-radius: 12px 12px 0 0;
+}
+
+.password {
+    border-radius: 0 0 12px 12px;
+}
+
+.submit-btn {
+    border-radius: 20px;
+    background-color: #ffffff;
+    color: #1c1c1e;
+    line-height: 40px;
+    font-size: 1rem;
+    font-weight: 700;
+    width: fit-content;
+    min-width: 146px;
+    cursor: pointer;
+}
