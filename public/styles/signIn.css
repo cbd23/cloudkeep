@@ -40,12 +40,12 @@ header {
     display: flex;
     align-items: center;
     cursor: pointer;
-    margin: 4px;
+    margin: 8px;
 }
 
 form {
-    border: 1px solid white;
     border-radius: 32px;
+    box-shadow: 0 0 34px -6px black;
     width: 640px;
     height: 610px;
     margin: 40px auto;
