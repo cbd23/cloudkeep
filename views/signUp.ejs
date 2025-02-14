@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/signUp.css">
+    <link rel="icon" href="/images/cloudkeep-icon.ico" />
+    <title>CloudKeep</title>
+</head>
+<body>
+    <header>
+        <a href="/">
+            <div class="home-btn">
+                <div class="app-logo">
+                    <img src="images/cloudkeep-logo-landscape.png" alt="CloudKeep logo" height="40">
+                </div>
+                <div class="app-name">CloudKeep</div>
+            </div>
+        </a>
+        <div class="options-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="34" height="34" fill="white"><title>dots-horizontal</title><path d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" /></svg>
+        </div>
+    </header>
+    <main>
+        <form action="/sign-up" method="post">
+            <div class="app-logo-container">
+                <img src="/images/cloudkeep-logo-landscape.png" alt="CloudKeep logo" height="32">
+            </div>
+            <h2 class="sign-up-heading">Create Your CloudKeep Account</h2>
+            <p>One Apple Account is all you need to access all Apple services.<br>Already have an Apple Account? <a href="/sign-in">Sign In</a></p>
+            <div class="name-container">
+                <input type="text" class="first-name" name="firstName" placeholder="First name" required>
+                <input type="text" class="last-name" name="lastName" placeholder="Last name" required>
+            </div>
+            
+            <div class="country-container">
+                <select name="country" id="country">
+                    <option value="Romania" selected>Romania</option>
+                    <option value="Spain">Spain</option>
+                    <option value="United Kingdom">United Kingdom</option>\
+                    <option value="United States">United States</option>
+                    <option value="Zimbabwe">Zimbabwe</option>
+                </select>
+            </div>
+            
+            <p>Date of birth</p>
+            
+            <div class="birth-date-container">
+                <select id="day" name="day">
+                    <option value=""></option>
+                </select>
+                <select id="month" name="month"></select>
+                <select id="year" name="year"></select>
+            </div>
+            
+            <hr>
+
+            <input type="email" name="email" placeholder="name@example.com">
+            <p>This will be your new CloudKeep Account. </p>
+            <input type="password" name="password" placeholder="Password"></input>
+            <input type="password" name="confirmPassword" placeholder="Confirm Password"></input>
+
+            <hr>
+
+            <div class="announcements-disclaimer-container">
+                <input type="checkbox" id="announcements" name="announcements">
+                <label for="announcements">Announcements</label>
+            </div>
+            <p>Receive CloudKeep emails and communications including announcements, marketing, recommendations and updates about CloudKeep products, services and software.</p>
+            
+            <div class="apps-disclaimer-container">
+                <input type="checkbox" id="apps" name="apps">
+                <label for="apps">Apps, Music, TV and More</label>
+            </div>
+            
+            <p>Receive CloudKeep emails and communications including new releases, exclusive content, special offers and marketing, and recommendations for apps, music, movies, TV, books, podcasts, CloudKeep Pay and more.</p>
+
+            <hr>
+
+            <img src="/images/data-privacy-icon.png" alt="" height="30">
+
+            <p>Your CloudKeep Account information is used to allow you to sign in securely and access your data. CloudKeep records certain data for security, support and reporting purposes. If you agree, CloudKeep may also use your CloudKeep Account information to send you marketing emails and communications, including based on your use of CloudKeep services.</p>
+            <div class="buttons-container">
+                <button>Cancel</button>
+                <button type="submit">Continue</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
