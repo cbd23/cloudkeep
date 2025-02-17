@@ -24,21 +24,21 @@
     <main>
         <form action="/sign-up" method="post">
             <div class="app-logo-container">
-                <img src="/images/cloudkeep-logo-landscape.png" alt="CloudKeep logo" height="32">
+                <img src="/images/cloudkeep-logo-landscape.png" alt="CloudKeep logo" height="36">
             </div>
             <h2 class="sign-up-heading">Create Your CloudKeep Account</h2>
             <p>One Apple Account is all you need to access all Apple services.<br>Already have an Apple Account? <a href="/sign-in">Sign In</a></p>
             <div class="name-container">
-                <input type="text" class="first-name" name="firstName" placeholder="First name" required>
-                <input type="text" class="last-name" name="lastName" placeholder="Last name" required>
+                <input type="text" class="first-name" name="firstName" placeholder="First name" maxlength="20" required>
+                <input type="text" class="last-name" name="lastName" placeholder="Last name" maxlength="20" required>
             </div>
             
             <div class="country-container">
                 <select name="country" id="country">
-                    <option value="Romania" selected>Romania</option>
+                    <option value="Romania">Romania</option>
                     <option value="Spain">Spain</option>
-                    <option value="United Kingdom">United Kingdom</option>\
-                    <option value="United States">United States</option>
+                    <option value="United Kingdom">United Kingdom</option>
+                    <option value="United States" selected>United States</option>
                     <option value="Zimbabwe">Zimbabwe</option>
                 </select>
             </div>
@@ -46,19 +46,37 @@
             <p>Date of birth</p>
             
             <div class="birth-date-container">
-                <select id="day" name="day">
-                    <option value=""></option>
+                <select id="day" name="day" required>
+                    <option value="" disabled selected>Day</option>
+                    <% for(let i=1; i <=31; i++) { %>
+                        <option value="<%= i %>">
+                            <%= i %>
+                        </option>
+                    <% } %>
                 </select>
-                <select id="month" name="month"></select>
-                <select id="year" name="year"></select>
+                <select id="month" name="month" required>
+                    <option value="" disabled selected>Month</option>
+                    <% const months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]; 
+                    for(let i=0; i < months.length; i++) { %>
+                        <option value="<%= i + 1 %>">
+                            <%= months[i] %>
+                        </option>
+                    <% } %>
+                </select>
+                <select id="year" name="year" required>
+                    <option value="" disabled selected>Year</option>
+                    <% for(let i = new Date().getFullYear(); i >= 1940; i--) { %>
+                        <option value="<%= i %>"><%= i %></option>
+                    <% } %>
+                </select>
             </div>
             
             <hr>
 
-            <input type="email" name="email" placeholder="name@example.com">
+            <input type="email" name="email" placeholder="name@example.com" required>
             <p>This will be your new CloudKeep Account. </p>
-            <input type="password" name="password" placeholder="Password"></input>
-            <input type="password" name="confirmPassword" placeholder="Confirm Password"></input>
+            <input type="password" name="password" minlength="8" maxlength="40" placeholder="Password" required></input>
+            <input type="password" name="confirmPassword" minlength="8" maxlength="40" placeholder="Confirm Password" required></input>
 
             <hr>
 
@@ -79,7 +97,7 @@
 
             <img src="/images/data-privacy-icon.png" alt="" height="30">
 
-            <p>Your CloudKeep Account information is used to allow you to sign in securely and access your data. CloudKeep records certain data for security, support and reporting purposes. If you agree, CloudKeep may also use your CloudKeep Account information to send you marketing emails and communications, including based on your use of CloudKeep services.</p>
+            <p class="final-disclaimer">Your CloudKeep Account information is used to allow you to sign in securely and access your data. CloudKeep records certain data for security, support and reporting purposes. If you agree, CloudKeep may also use your CloudKeep Account information to send you marketing emails and communications, including based on your use of CloudKeep services.</p>
             <div class="buttons-container">
                 <button>Cancel</button>
                 <button type="submit">Continue</button>
