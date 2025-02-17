@@ -53,49 +53,36 @@ header {
 form {
     border-radius: 8px;
     box-shadow: 0 0 34px -6px black;
-    
     width: 640px;
     height: 660px;
-
     margin: 40px auto;
     padding: 40px 0;
-    
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-
     line-height: 1.5rem;
     overflow: auto;
     gap: 16px;
 }
 
 .app-logo-container {
-    border: 1px solid red;
     height: 100%;
-
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.app-logo-container img {
-    border: 1px solid white;
-}
-
 h2 {
-    border: 1px solid deeppink;
     font-weight: 500;
     font-size: 28px;
 }
 
 h2 + p {
-    border: 1px solid blue;
     text-align: center;
 }
 
 .name-container {
-    border: 1px solid red;
     display: flex;
     width: 512px;
     gap: 12px;
@@ -122,13 +109,11 @@ input[type="password"],
 }
 
 .country-container + p {
-    border: 1px solid deeppink;
     width: 512px;
     font-size: 17px;
 }
 
 .birth-date-container {
-    border: 1px solid red;
     width: 512px;
     display: flex;
     gap: 12px;
@@ -136,6 +121,7 @@ input[type="password"],
 
 .birth-date-container select {
     width: 100%;
+    padding: 8px 18px;
 }
 
 hr {
@@ -145,6 +131,7 @@ hr {
 
 input[type="email"] + p {
     width: 512px;
+    font-size: 0.9rem;
 }
 
 .announcements-disclaimer-container,
@@ -165,4 +152,12 @@ input[type="email"] + p {
     color: #6e6e73;
     padding-left: 24px;
     line-height: 1rem;
+}
+
+.final-disclaimer {
+    width: 512px;
+    color: #86868b;
+    font-size: 12px;
+    line-height: 1rem;
+    text-align: center;
 }
