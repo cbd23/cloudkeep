@@ -64,6 +64,7 @@ form {
     line-height: 1.5rem;
     overflow: auto;
     gap: 16px;
+    position: relative;
 }
 
 .app-logo-container {
@@ -160,4 +161,50 @@ input[type="email"] + p {
     font-size: 12px;
     line-height: 1rem;
     text-align: center;
+}
+
+.buttons-container {
+    border-radius: 0 0 8px 8px;
+    background-color: #424245;
+    padding: 20px 30px;
+    width: 100%;
+    height: 76px;
+    position: sticky;
+    bottom: -40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a[href="/sign-in"] {
+    margin: 0;
+}
+
+button[type="button"] {
+    background-color: inherit;
+    border: 1px solid #0171e3;
+    color: #0171e3;
+}
+
+button[type="button"]:hover {
+    background-color: #0171e3;
+    border: 1px solid #0171e3;
+    color: #ffffff;
+}
+
+button[type="submit"] {
+    background-color: #0171e3;
+    color: #ffffff;
+}
+
+button {
+    outline: 0;
+    border: 1px solid #0171e3;
+    border-radius: 8px;
+    width: 176px;
+    height: 36px;
+    font-size: 14px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 8px 15px;
+    cursor: pointer;
 }
