@@ -141,6 +141,7 @@ li {
 }
 
 li a {
+    width: 100%;
     text-align: center;
     display: flex;
     align-items: center;
@@ -149,6 +150,12 @@ li a {
 
 li:hover {
     background-color: #343436;
+}
+
+ul h4 {
+    color: #b3b3b4;
+    margin: 12px 8px 6px;
+    font-size: 14px;
 }
 
 .main-logged {
