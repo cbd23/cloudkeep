@@ -164,7 +164,107 @@ ul h4 {
     background-color: #1b1b1d;
     grid-area: 2 / 2 / span 1 / span 1;
     display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.main-icon-buttons-container {
+    /* border: 1px solid red; */
+
+    width: 100%;
+    height: 40px;
+    display: flex;
+}
+
+.main-icon-buttons-container svg {
+    height: 20px;
+    fill: white;
+    cursor: pointer;
+}
+
+.left-icons-container {
     flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.view-select-icon {
+    /* border: 1px solid orange; */
+
+    border-radius: 8px;
+    width: 50px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-left: 18px;
+    cursor: pointer;
+}
+
+.view-select-icon:hover {
+    background-color: #323236;
+}
+
+.view-icon-one {
+    /* border: 1px solid white; */
+
+    width: 12px;
+    height: 35px;
+}
+
+.view-icon-two {
+    /* border: 1px solid deeppink; */
+
+    width: 9px;
+    height: 14px;
+}
+
+.mid-icons-container {
+    /* border: 1px solid orange; */
+
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+}
+
+.right-icons-container {
+    /* border: 1px solid blue; */
+
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 18px;
+    padding-right: 16px;
+}
+
+.active-icon path {
+    fill: #0099ff;
+}
+
+.disabled-icon path {
+    fill: #1e4162;
+}
+
+.main-title-container {
+    border: 1px solid deeppink;
+
+    height: 34px;
+}
+
+.main-title-container svg {
+    fill: #b3b3b4;
+}
+
+.main-content-logged {
+    border: 1px solid greenyellow;
+
+    width: 100%;
+    height: 100%;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
