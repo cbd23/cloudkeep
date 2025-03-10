@@ -283,21 +283,23 @@ ul h4 {
     align-items: center;
 }
 
-table {
+table {    
     width: 100%;
     margin-bottom: auto;
     border-collapse: collapse; /* so the bottom border is visible for every tr, if it's not the last */
 }
 
 thead {
-    /* border: 2px solid blue; */
-
     height: 44px;
 }
 
 tbody tr {
     height: 41px;
     border-bottom: 1px solid #343436;
+}
+
+tbody tr:hover {
+    background-color: #343436;
 }
 
 tbody tr:last-child {
@@ -314,4 +316,23 @@ th {
 
 td, th {
     padding: 0 70px;
+}
+
+td svg {
+    margin-left: -40px;
+}
+
+td span {
+    margin-left: 14px;
+}
+
+td {
+    font-size: 14px;
+    color: #FFFFFF80;
+    cursor: default;
+}
+
+td[scope="row"] {
+    font-size: 17px;
+    color: #fffffffa;
 }
