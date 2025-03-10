@@ -336,3 +336,19 @@ td[scope="row"] {
     font-size: 17px;
     color: #fffffffa;
 }
+
+td[scope="row"] a {
+    cursor: pointer;
+}
+
+.file-options {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.shared-and-options {
+    display: flex;
+    align-items: center;
+    gap: 90px;
+    margin-left: -14px;
+}
