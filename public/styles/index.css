@@ -148,6 +148,14 @@ li a {
     gap: 10px;
 }
 
+li a[href="/shared"] {
+    margin-left: -4px;
+}
+
+li.browse-list-item {
+    background-color: #343436;
+}
+
 li:hover {
     background-color: #343436;
 }
