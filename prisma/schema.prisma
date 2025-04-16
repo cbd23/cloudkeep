@@ -6,3 +6,28 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id          Int  @id @default(autoincrement())
+  firstName   String
+  lastName    String
+  country     String
+  dateOfBirth DateTime
+  email       String  @unique
+  password    String
+  files       File[]  // Relation to File
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt  // Auto-updates on change
+}
+
+model File {
+  id        Int  @id @default(autoincrement())
+  fileName  String
+  fileURL   String
+  kind      String   // Stores file extension or MIME type (e.g., 'jpeg', 'application/pdf')
+  size      Int
+  date      DateTime @default(now())
+  shared    Boolean  @default(false)
+  author    User     @relation(fields: [authorID], references: [id], onDelete: Cascade)
+  authorID  Int
+}
