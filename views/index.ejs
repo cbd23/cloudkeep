@@ -7,7 +7,7 @@
     <link rel="icon" href="/images/cloudkeep-icon.ico" />
     <title>CloudKeep</title>
 </head>
-    <% if (!locals.user) { %>
+    <% if (locals.user) { %>
         <body class="body-logged">
             <header class="header-logged">
                 <a href="/">
