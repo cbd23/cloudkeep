@@ -31,3 +31,10 @@ model File {
   author    User     @relation(fields: [authorID], references: [id], onDelete: Cascade)
   authorID  Int
 }
+
+model Session {
+  id        String   @id
+  sid       String   @unique
+  data      String   @db.Text
+  expiresAt   DateTime
+}
