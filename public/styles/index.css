@@ -114,10 +114,23 @@ main {
     width: 184px;
 }
 
+.header-icons-container > div {
+    border-radius: 8px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.header-icons-container > div:hover {
+    background-color: #4d4d51;
+}
+
 .header-icons-container svg {
     width: 22px;
     height: 22px;
-    cursor: pointer;
 }
 
 nav {
