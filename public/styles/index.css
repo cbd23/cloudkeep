@@ -92,8 +92,6 @@ main {
 /* the styles below apply if user is logged in  */
 
 .body-logged {
-    /* border: 1px solid red; */
-
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 10fr;
@@ -101,8 +99,6 @@ main {
 }
 
 .header-logged {
-    /* border: 1px solid blue; */
-
     background-color: #323236;
     grid-area: 1 / 1 / 2 / 3;
 }
@@ -112,9 +108,10 @@ main {
     justify-content: space-around;
     align-items: center;
     width: 184px;
+    position: relative;
 }
 
-.header-icons-container > div {
+.header-icons-container > div.icon {
     border-radius: 8px;
     width: 36px;
     height: 36px;
@@ -124,13 +121,98 @@ main {
     cursor: pointer;
 }
 
-.header-icons-container > div:hover {
+.header-icons-container > div.icon:hover {
     background-color: #4d4d51;
 }
 
 .header-icons-container svg {
     width: 22px;
     height: 22px;
+}
+
+.user-account-options {
+    border-radius: 12px;
+    width: 240px;
+    height: 183px;
+    position: absolute;
+    top: 44px;
+    right: 4px;
+    box-shadow: 0 10px 14px 0px black;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-account-info {
+    background-color: #38383b;
+    border-radius: 12px 12px 0 0;
+    width: 240px;
+    height: 72px;
+    padding: 12px 14px;
+}
+
+.user-account-info .user-fullname {
+    font-size: 17px;
+    color: #fffffffa;
+    font-weight: 600;
+    line-height: 25px;
+}
+
+.user-account-info .user-email {
+    font-size: 14px;
+    color: #ffffffa8;
+    font-weight: 400;
+    line-height: 25px;
+}
+
+.user-account-buttons {
+    background-color: #1c1c1e;
+    border-radius: 0 0 12px 12px;
+    color: whitesmoke;
+    width: 240px;
+    height: 111px;
+    padding: 0 4px;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-account-buttons > div,
+.user-account-buttons > a {
+    border-radius: 8px;
+    margin: 2px 0;
+    padding: 4px 2px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+}
+
+.user-account-buttons > div:hover,
+.user-account-buttons > a:hover {
+    background-color: #4d4d5156;
+}
+
+.user-account-buttons hr {
+    width: 90%;
+    margin: auto;
+    height: 1px;
+    border: none;
+    background-color: #343436;
+}
+
+.user-account-buttons path {
+    fill: #0099ff;
+}
+
+.sign-out-button path {
+    fill: #ff3037;
+}
+
+.sign-out-button div {
+    color: #ff3037;
+}
+
+.hidden {
+    display: none;
 }
 
 nav {
@@ -180,8 +262,6 @@ ul h4 {
 }
 
 .main-logged {
-    /* border: 1px solid white; */
-
     background-color: #1b1b1d;
     grid-area: 2 / 2 / span 1 / span 1;
     display: flex;
@@ -190,8 +270,6 @@ ul h4 {
 }
 
 .main-icon-buttons-container {
-    /* border: 1px solid red; */
-
     width: 100%;
     height: 40px;
     display: flex;
@@ -210,8 +288,6 @@ ul h4 {
 }
 
 .view-select-icon {
-    /* border: 1px solid orange; */
-
     border-radius: 8px;
     width: 50px;
     height: 28px;
@@ -228,22 +304,16 @@ ul h4 {
 }
 
 .view-icon-one {
-    /* border: 1px solid white; */
-
     width: 12px;
     height: 35px;
 }
 
 .view-icon-two {
-    /* border: 1px solid deeppink; */
-
     width: 9px;
     height: 14px;
 }
 
 .mid-icons-container {
-    /* border: 1px solid orange; */
-
     flex: 1;
     display: flex;
     justify-content: center;
@@ -252,8 +322,6 @@ ul h4 {
 }
 
 .right-icons-container {
-    /* border: 1px solid blue; */
-
     flex: 1;
     display: flex;
     justify-content: flex-end;
