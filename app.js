@@ -8,6 +8,8 @@ import { Strategy as LocalStrategy } from 'passport-local'
 import prisma from './prisma/client.js'
 import { PrismaSessionStore } from '@quixo3/prisma-session-store'
 import bcrypt from 'bcryptjs'
+import multer from 'multer'
+import fs from 'fs'
 
 // import routers
 import indexRouter from "./routes/indexRouter.js"
@@ -24,6 +26,9 @@ const app = express()
 // ejs setup
 app.set("views", path.join(__dirname, "views"))
 app.set("view engine", "ejs")
+
+// create absolute path to 'uploads' - required for file uploading config with multer
+const uploadPath = path.join(__dirname, 'uploads')
 
 // config app for serving static assets (like CSS files)
 const assetsPath = path.join(__dirname, "public")
@@ -135,6 +140,26 @@ app.use((req, res, next) => {
         console.log(req.user.id, req.user.email)
     } else console.log('user not logged')
     next()
+})
+
+// config multer & define upload's destination
+if (!fs.existsSync(uploadPath)) {
+    fs.mkdirSync(uploadPath)
+  }
+  
+  const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, uploadPath)
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname)
+    }
+  })
+  
+  const upload = multer({ storage })
+  
+  app.post('/api/upload', upload.single('file'), (req, res) => {
+    res.send('Uploaded successfully!')
 })
 
 // assign routers
