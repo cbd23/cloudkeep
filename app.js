@@ -10,6 +10,9 @@ import { PrismaSessionStore } from '@quixo3/prisma-session-store'
 import bcrypt from 'bcryptjs'
 import multer from 'multer'
 import fs from 'fs'
+import fsPromises from 'fs/promises'
+import tinify from 'tinify'
+import { v4 as uuidv4 } from 'uuid'
 
 // import routers
 import indexRouter from "./routes/indexRouter.js"
@@ -19,6 +22,8 @@ import signUpRouter from "./routes/signUpRouter.js"
 // define __filename & __dirname for ejs setup using ESM
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
+
+tinify.key = process.env.TINIFY_API_KEY
 
 // init express app
 const app = express()
@@ -60,7 +65,6 @@ app.use(passport.session())
 
 // use urlencoded for POST requests
 app.use(express.urlencoded({ extended: true }))
-
 
 // use the Local Strategy to authenticate users
 passport.use(
@@ -144,22 +148,73 @@ app.use((req, res, next) => {
 
 // config multer & define upload's destination
 if (!fs.existsSync(uploadPath)) {
-    fs.mkdirSync(uploadPath)
+  fs.mkdirSync(uploadPath)
+}
+
+// define the allowed file types for upload, for both images & docs
+const allowedImageTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif']
+const allowedDocTypes = [
+  'application/pdf',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+  'text/plain'
+]
+  
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => cb(null, uploadPath),
+  filename: (req, file, cb) => {
+    const timestamp = Date.now()
+    const ext = path.extname(file.originalname)
+    const name = path.basename(file.originalname, ext)
+    cb(null, `${name}-${timestamp}${ext}`)
   }
+})
+
+// file filter for allowed MIME types
+const fileFilter = (req, file, cb) => {
+  const isAllowed = [...allowedImageTypes, ...allowedDocTypes].includes(file.mimetype)
+  if (isAllowed) cb(null, true)
+  else cb(new Error('Unsupported file type'), false)
+}
   
-  const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, uploadPath)
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.originalname)
+// multer middleware
+const upload = multer({
+  storage,
+  fileFilter,
+  limits: { fileSize: 10 * 1024 * 1024 }
+})
+
+app.post('/api/upload', upload.single('file'), async (req, res) => {
+  const file = req.file
+  const isImage = allowedImageTypes.includes(file.mimetype)
+  const isDocument = allowedDocTypes.includes(file.mimetype)
+
+  try {
+    if (!file) {
+      return res.status(400).send('No file uploaded')
     }
-  })
-  
-  const upload = multer({ storage })
-  
-  app.post('/api/upload', upload.single('file'), (req, res) => {
-    res.send('Uploaded successfully!')
+
+    // limit documents to be uploaded to max 5MB
+    if (isDocument && file.size > 5 * 1024 * 1024) {
+      fs.unlinkSync(file.path)
+      return res.status(400).send('Document files must be 5MB or less')
+    }
+
+    if (isImage) {
+      // Compress with TinyPNG
+      tinify.key = process.env.TINIFY_API_KEY
+      const source = tinify.fromFile(file.path)
+      const compressedPath = path.join(uploadPath, 'compressed-' + file.filename)
+      await source.toFile(compressedPath)
+      fs.unlinkSync(file.path) // remove original image, since only the compressed will be stored
+      return res.send('Image uploaded and compressed successfully!')
+    } else {
+      // for documents: just save it! (since it's uploaded we know it isn't bigger than 5MB)
+      return res.send('Document uploaded successfully!')
+    }
+  } catch (err) {
+    console.error(err)
+    return res.status(500).send('Error processing file')
+  }
 })
 
 // assign routers
